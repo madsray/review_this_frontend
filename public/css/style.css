@@ -11,7 +11,9 @@
 *{
   /* border: 1px solid gold; */
 }
-
+body {
+  color: red;
+}
 main{
   /* height: 500px; */
   /* width: 90%; */
