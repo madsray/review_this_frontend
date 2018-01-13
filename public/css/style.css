@@ -1,0 +1,43 @@
+/* nav{
+  width: 90%;
+  height: 50px;
+  background-color: #8d2c27;
+  margin: 0 auto;
+  /* position: fixed;
+  top: 0;
+
+} */
+
+*{
+  /* border: 1px solid gold; */
+}
+
+main{
+  height: 500px;
+  width: 90%;
+  background-color: grey;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 10px;
+  display: flex;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-top: 40px;
+}
+
+#left{
+  width: 50%;
+  /* border-right: 1px solid black; */
+  height: 450px;
+}
+.form1{
+  /* width: 90%; */
+  margin: 0 auto;
+}
+.form1 > input{
+  margin-bottom: 20px;
+}
+.wrap{
+  width: 90%;
+  margin: 0 auto;
+}

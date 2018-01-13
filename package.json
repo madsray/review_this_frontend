@@ -1,0 +1,24 @@
+{
+  "name": "review_this_frontend",
+  "version": "1.0.0",
+  "description": "Movie Review App Frontend",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/madsray/review_this_frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/madsray/review_this_frontend/issues"
+  },
+  "homepage": "https://github.com/madsray/review_this_frontend#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "normalize.css": "^7.0.0"
+  }
+}
