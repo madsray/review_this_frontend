@@ -17,7 +17,7 @@
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">Dinner and a Movie</a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
@@ -25,14 +25,14 @@
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" href="#">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
+          <a class="nav-link" href="#">Create Movie</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        <input ng-model="searchBox" class="form-control mr-sm-2" type="text" placeholder="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
     </div>
@@ -56,7 +56,7 @@
 
       </form>
     </section>
-    <!-- <img ng-repeat="movie.img_url in ctrl.getAllMovies" class="right"><a href="https://placeholder.com"><img src="{{ ctrl.movie }}"></a> -->
+    <img class="right" ng-repeat='movie in ctrl.movies | limit:1'><a href="https://placeholder.com"><img src="http://via.placeholder.com/500x350"></a>
     </div>
   </div>
 
@@ -78,7 +78,7 @@
 
                   <div class="item active">
                   	<div class="row-fluid">
-                  	  <div class="span3" ng-repeat="movie in ctrl.movies"><a href="#x" class="thumbnail"><img src="{{ movie.img_url }}" alt="Image" style="max-width:100%;" /></a></div>
+                  	  <div class="span3" ng-repeat="movie in ctrl.movies"><a href="#x" class="thumbnail"><img class="cards"src="{{ movie.img_url }}" alt="Image" style="max-width:100%;" /></a></div>
                   	  <!-- <div class="span3"><a href="#x" class="thumbnail"><img src="http://placehold.it/230x150" alt="Image" style="max-width:100%;" /></a></div>
                   	  <div class="span3"><a href="#x" class="thumbnail"><img src="http://placehold.it/230x150" alt="Image" style="max-width:100%;" /></a></div>
                   	  <div class="span3"><a href="#x" class="thumbnail"><img src="http://placehold.it/230x150" alt="Image" style="max-width:100%;" /></a></div> -->

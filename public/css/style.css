@@ -12,7 +12,7 @@
   /* border: 1px solid gold; */
 }
 body {
-  color: red;
+  /* color: red; */
 }
 main{
   /* height: 500px; */
@@ -94,4 +94,26 @@ background: #333333;
 }
 #myCarousel{
   width: 100%;
+  padding: 0;
+}
+
+.cards{
+  height: 300px;
+  margin: 0 auto;
+}
+
+.row-fluid{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-outline-success{
+  color: #e1876e;
+  border: 1px solid #e1876e;
+}
+.btn-outline-success:hover{
+  color: #71211d;
+  background-color: #e1876e;
+  border: 1px solid #71211d;
 }
