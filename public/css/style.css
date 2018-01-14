@@ -57,6 +57,8 @@ h4 {
   display: flex;
   justify-content: space-between;
   margin-top: 60px;
+  float: left !important;
+
 }
 .wrap{
   /* width: 90%; */
