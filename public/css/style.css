@@ -32,7 +32,17 @@ main{
   height: 450px;
 }
 .right{
-  margin: 0 auto;rgba(84,19,17,1)
+  margin: 0 100px;
+}
+h2 {
+  font-weight: bold;
+}
+h4 {
+  font-size: 20px;
+}
+.smallImg{
+  width: 350px;
+  height: auto;
 }
 .form1{
   /* width: 90%; */
