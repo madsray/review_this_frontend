@@ -1,5 +1,6 @@
 // console.log("Winston is the best dog and maybe Dexter.")
 
+
 const app = angular.module('dindin', []);
 app.controller('MainController', ['$http', function($http){
 
@@ -7,6 +8,7 @@ app.controller('MainController', ['$http', function($http){
   this.movies = [];
   this.imgs = [];
   // this.showmovie = {};
+  this.oneMovie = {};
 
   // Show Movies Function
   this.getAllMovies = () => {
@@ -22,31 +24,22 @@ app.controller('MainController', ['$http', function($http){
     }).catch(reject => {
       console.log('reject: ', reject);
     });
-    // this.getOneMovie = ( movie ) => {
-    //   this.movies = movie;
-    //   console.log('++++++++++++++++++++++++');
-    //   console.log(this.movies);
-    //   console.log('++++++++++++++++++++++++');
-    // };
   };
-  // this.getOneMovie = () => {
-  //   $http({
-  //     method: 'GET',
-  //     url: 'http://localhost:3000/movies/:id'
-  //   }).then(response=> {
-  //     console.log('response: ', response);
-  //     console.log("===============================");
-  //     console.log(response.data[0].img_url);
-  //     console.log("===============================");
-  //     this.movies = response.data.id;
-  //   }).catch(reject => {
-  //     console.log('reject: ', reject);
-  //   });
-  // };
-  // this.getOneMovie();
 
   // Initiall show all movies call
   this.getAllMovies();
+
+  this.showOne = (movie) => {
+    this.movieId = movie.id
+
+    $http({
+        method: 'GET',
+        url: 'http://localhost:3000/movies/' + this.movieId
+    }).then(response => {
+        this.oneMovie = response.data;
+        console.log(this.oneMovie);
+    }).catch(err => console.log(err));
+  }
 
   // Create Movie
   this.processForm = () => {
@@ -66,4 +59,4 @@ app.controller('MainController', ['$http', function($http){
 
 
 
-}])
+}]);
