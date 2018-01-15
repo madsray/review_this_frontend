@@ -1,0 +1,6 @@
+
+<div ng-repeat="movie in ctrl.movies">
+<ul>
+  <a href="/movies/{{movie.id}}" ng-click="ctrl.showOne(movie.id)">{{movie.title}}</a>
+</ul>
+</div>

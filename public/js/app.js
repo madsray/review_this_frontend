@@ -64,6 +64,13 @@ app.controller('MainController', ['$http', function($http){
   };
 
 
-
-
+  this.showOne = (id) => {
+    $http({
+        method: 'GET',
+        url: 'http://localhost:3000/movies' + id
+    }).then(response => {
+        this.oneMovies = response.data;
+        console.log(this.oneMovies);
+    }).catch(err => console.log(err));
+    }
 }])
