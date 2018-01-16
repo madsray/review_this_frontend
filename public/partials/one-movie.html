@@ -1,0 +1,37 @@
+<div class="container">
+  <section id='left'>
+    <div class="wrap">
+      <h2>{{ ctrl.oneMovie.title }}</h2>
+      <h4>{{ ctrl.oneMovie.year}}</h4>
+      <h4>{{ ctrl.oneMovie.genre}}</h3>
+      <p>{{ ctrl.oneMovie.plot}}</p>
+
+      <!-- Need to ng-repeat reviews -->
+      <h3> Meal Pairings </h3>
+      <div ng-repeat="oneReview in ctrl.oneMovie.reviews">
+        <p> {{ oneReview.title }}</p>
+        <p>{{oneReview.content}}</p>
+        <p>{{oneReview.rating}}</p>
+      </div>
+      <!-- <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span> -->
+
+      <form>
+        <div class="form-group form1">
+          <label for="exampleInputEmail1">Add a Review</label>
+          <textarea type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="enter a review"></textarea>
+          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+          <button type="submit" class="btn btn-primary revbtn"> Submit </button>
+        </div>
+      </form>
+
+    </section>
+
+    <div>
+      <img class="right one-image" ng-src="{{ ctrl.oneMovie.img_url }}">
+    </div>
+
+  </div>
