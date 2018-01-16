@@ -31,7 +31,7 @@
 
   <main>
 
-    <div ng-include="'partials/one-movie.html'"> </div>
+    <div ng-if="ctrl.showPage === true" ng-include="'partials/one-movie.html'"> </div>
     <div ng-include="'partials/all-movies.html'"> </div>
 
     <!-- <div ng-include="'partials/carousel.html'"> </div> -->

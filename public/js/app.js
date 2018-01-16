@@ -7,8 +7,8 @@ app.controller('MainController', ['$http', function($http){
   // this.message='Liz is throwing away her salad';
   this.movies = [];
   this.imgs = [];
-  // this.showmovie = {};
   this.oneMovie = {};
+  this.showPage = false;
 
   // Show Movies Function
   this.getAllMovies = () => {
@@ -38,6 +38,7 @@ app.controller('MainController', ['$http', function($http){
     }).then(response => {
         this.oneMovie = response.data;
         console.log(this.oneMovie);
+        this.showPage = true;
     }).catch(err => console.log(err));
   }
 
@@ -55,8 +56,6 @@ app.controller('MainController', ['$http', function($http){
       console.log('reject: ', reject);
     });
   };
-
-
 
 
 }]);

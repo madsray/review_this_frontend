@@ -185,3 +185,15 @@ background: #333333;
   height: 200px;
   border-radius: 5px;
 }
+
+.one-image {
+  width: 350px;
+  height: auto;
+}
+
+h2 {
+  font-weight: bold;
+}
+h4 {
+  font-size: 20px;
+}
