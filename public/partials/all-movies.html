@@ -1,0 +1,4 @@
+<div class="all-thumbs" ng-repeat="movie in ctrl.movies">
+  <img class="thumb" ng-click="ctrl.showOne(movie)"
+    ng-click="ctrl.showPage = true" ng-src="{{ movie.img_url }}" />
+</div>
