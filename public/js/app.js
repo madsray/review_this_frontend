@@ -8,7 +8,8 @@ app.controller('MainController', ['$http', function($http){
   this.movies = [];
   this.imgs = [];
   this.oneMovie = {};
-  this.showPage = false;
+  this.showPage = false
+  this.formdata = {};
 
   // Show Movies Function
   this.getAllMovies = () => {
@@ -56,6 +57,48 @@ app.controller('MainController', ['$http', function($http){
       console.log('reject: ', reject);
     });
   };
+  // Create Reviews
+  // this.addReview = () => {
+  //     this.formdata.movieID = this.movieid;
+  //     $http({ url: '/reviews', method: 'POST', data: this.formdata })
+  //         .then(response => {
+  //             console.log(response.data);
+  //             this.formdata.push(response.data)
+  //         }, err => {
+  //             console.log(err.data.err);
+  //             this.error = err.statusText;
+  //         })
+  //         .catch(err => console.log(err.message));
+  //     $http({
+  //         method: 'GET',
+  //         url: '/movies/' + this.movieId
+  //     }).then(response => {
+  //         this.movieReviews = response.data;
+  //         this.formdata = {};
+  //     }).catch(err => console.log(err));
+  // }
+
+  this.addReview = (movie_ID) => {
+    this.formdata.movie_ID = this.movieid;
+    $http({
+      url: '/reviews',
+      method: 'POST',
+      data: this.formdata
+    }).then(response => {
+      console.log("line 88", response.data);
+    }).catch(err => {
+      console.log(err);
+    });
+    $http({
+      method: 'GET',
+      url: '/movies/' + this.movieId
+    }).then(response => {
+      console.log(this.formdata);
+      this.movieReviews = response.data;
+      console.log(this.movieReviews);
+      this.formdata= {}
+    }).catch(err => console.log(err));
+  }
 
 
 }]);
