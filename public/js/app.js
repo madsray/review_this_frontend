@@ -1,14 +1,11 @@
-// console.log("Winston is the best dog and maybe Dexter.")
-
-
 const app = angular.module('dindin', []);
 app.controller('MainController', ['$http', function($http){
 
-  // this.message='Liz is throwing away her salad';
   this.movies = [];
   this.imgs = [];
   this.oneMovie = {};
-  this.showPage = false;
+  this.showPage = false
+  this.formdata = {};
 
   // Show Movies Function
   this.getAllMovies = () => {
@@ -17,9 +14,6 @@ app.controller('MainController', ['$http', function($http){
       url: 'http://localhost:3000/movies'
     }).then(response=> {
       console.log('response: ', response);
-      console.log("===============================");
-      console.log(response.data[0].img_url);
-      console.log("===============================");
       this.movies = response.data;
     }).catch(reject => {
       console.log('reject: ', reject);
@@ -56,6 +50,27 @@ app.controller('MainController', ['$http', function($http){
       console.log('reject: ', reject);
     });
   };
-
+  // Create Reviews
+  this.addReview = (movie_ID) => {
+    this.formdata.movie_ID = this.movieid;
+    $http({
+      url: '/reviews',
+      method: 'POST',
+      data: this.formdata
+    }).then(response => {
+      console.log("line 88", response.data);
+    }).catch(err => {
+      console.log(err);
+    });
+    $http({
+      method: 'GET',
+      url: '/movies/' + this.movieId
+    }).then(response => {
+      console.log(this.formdata);
+      this.movieReviews = response.data;
+      console.log(this.movieReviews);
+      this.formdata= {}
+    }).catch(err => console.log(err));
+  };
 
 }]);
