@@ -8,9 +8,11 @@
 
       <!-- Need to ng-repeat reviews -->
       <h3> Meal Pairings </h3>
-      <p> {{ ctrl.oneMovie.reviews[0].title }}</p>
-      <p> {{ ctrl.oneMovie.reviews[0].content }}</p>
-
+      <div ng-repeat="oneReview in ctrl.oneMovie.reviews">
+        <p> {{ oneReview.title }}</p>
+        <p>{{oneReview.content}}</p>
+        <p>{{oneReview.rating}}</p>
+      </div>
       <!-- <span class="fa fa-star checked"></span>
       <span class="fa fa-star checked"></span>
       <span class="fa fa-star checked"></span>

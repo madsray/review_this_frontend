@@ -137,7 +137,7 @@ background: #333333;
 .caro{
   max-height: 400px;
   display: flex;
-  /* justify-content: center !important; */
+  /* justify-content: center; */
   /* overflow-x: auto; */
   flex-wrap: nowrap;
   overflow-x: auto;
