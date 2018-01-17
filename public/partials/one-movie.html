@@ -8,11 +8,12 @@
       <h3> Meal Pairings </h3>
 <table>
     <tr ng-repeat="oneReview in ctrl.oneMovie.reviews">
-        <td ng-click="ctrl.deleteReview(oneReview)"><span class="glyphicon glyphicon-trash" ></span></td>
-        <td ng-click="ctrl.displayEdit = true; ctrl.toEdit = oneReview.id"><span class="glyphicon glyphicon-pencil"></span></td>
-        <td>{{oneReview.title}}</td>
+        <td ng-click="ctrl.deleteReview(oneReview)"><span class="fa fa-trash-o" ></span></td>
+        <td ng-click="ctrl.displayEdit = true; ctrl.toEdit = oneReview.id"><span class="fa fa-pencil"></span></td>
+        <td> <span class="bold"> Title: </span> {{oneReview.title}}</td>
+        <td class="bold"> Rating:  {{oneReview.rating}} <i class="fa fa-star checked"></i></td>
         <td align="justify">{{oneReview.content}}</td>
-        <td class="bold">{{oneReview.rating}}</td>
+
           <div ng-if="ctrl.displayEdit === true" ng-include="'partials/edit-review.html'"></div>
     </tr>
 </table>
