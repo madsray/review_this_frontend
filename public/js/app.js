@@ -122,6 +122,7 @@ this.editReview = (id) => {
     this.showOne(this.oneMovie);
 
   },error=>console.error(error)).catch(err=> console.log(err.message));
+    this.displayEdit= false;
 };
 
 
