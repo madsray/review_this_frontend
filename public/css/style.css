@@ -11,6 +11,14 @@
 /* * {
   border: 1px solid gold;
 } */
+#createForm {
+  display: flex;
+  justify-content: center;
+}
+.inputM {
+  margin: 0 10px 20px;
+
+}
 .thumb {
   display: flex;
   flex-wrap: wrap;

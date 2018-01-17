@@ -1,8 +1,8 @@
-<form ng-submit="ctrl.addMovie()">
-  <input type='text' placeholder="Title of Movie" ng-model="ctrl.newMovie.title" />
-  <input type='text' placeholder="plot" ng-model="ctrl.newMovie.plot" />
-  <input type='text' placeholder="genre" ng-model="ctrl.newMovie.genre" />
-  <input type='text' placeholder="year" ng-model="ctrl.newMovie.year" />
-  <input type='text' placeholder="Image Url" ng-model="ctrl.newMovie.img_url" />
+<form id="createForm" ng-submit="ctrl.addMovie()">
+  <input class="inputM"type='text' placeholder="Title of Movie" ng-model="ctrl.newMovie.title" />
+  <input class="inputM" type='text' placeholder="plot" ng-model="ctrl.newMovie.plot" />
+  <input class="inputM" type='text' placeholder="genre" ng-model="ctrl.newMovie.genre" />
+  <input class="inputM" type='text' placeholder="year" ng-model="ctrl.newMovie.year" />
+  <input class="inputM" type='text' placeholder="Image Url" ng-model="ctrl.newMovie.img_url" />
   <input type="submit" value="Add a movie" />
 </form>
