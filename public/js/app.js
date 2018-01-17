@@ -8,6 +8,8 @@ app.controller('MainController', ['$http', function($http){
   this.formdata = {};
   this.reviews = [];
   this.movieID = 0;
+  this.displayEdit = false;
+  this.updateform = {};
 
 
   // Show Movies Function
@@ -91,8 +93,8 @@ app.controller('MainController', ['$http', function($http){
   };
 
 this.deleteReview = (id) => {
-  // this.currentReview = this.oneReview.id;
-  console.log(this.oneMovie.reviews[0]);
+
+  console.log(id.id)
   $http({
     url: 'http://localhost:3000/reviews/' + id.id,
     method: 'DELETE'
@@ -100,4 +102,30 @@ this.deleteReview = (id) => {
     this.showOne(this.oneMovie);
   }).catch(err=> console.error(err.message));
 };
+
+this.editReview = (id) => {
+  console.log("Clicckkkk");
+  // console.log(this.clickedId);
+  console.log(this.toEdit);
+  $http({
+    url: 'http://localhost:3000/reviews/' + this.toEdit,
+    method: 'PUT',
+    data: {
+      title: this.updateform.title,
+      content: this.updateform.content,
+      rating: this.updateform.rating,
+      movie_id: this.updateform.id
+    }
+  }).then (response => {
+
+    console.log(response.data.id);
+    this.showOne(this.oneMovie);
+
+  },error=>console.error(error)).catch(err=> console.log(err.message));
+    this.displayEdit= false;
+};
+
+
+
+
 }]);
