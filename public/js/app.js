@@ -28,12 +28,12 @@ app.controller('MainController', ['$http', function($http){
   this.showOne = (movie) => {
     this.movieId = movie.id
     $http({
-        method: 'GET',
-        url: 'http://localhost:3000/movies/' + this.movieId
+      method: 'GET',
+      url: 'http://localhost:3000/movies/' + this.movieId
     }).then(response => {
-        this.oneMovie = response.data;
-        // console.log(this.oneMovie);
-        this.showPage = true;
+      this.oneMovie = response.data;
+      // console.log(this.oneMovie);
+      this.showPage = true;
     }).catch(err => console.log(err));
   }
 
@@ -65,7 +65,7 @@ app.controller('MainController', ['$http', function($http){
   // Create Reviews
   this.addReview = () => {
 
-  console.log(this.oneMovie.id);
+    console.log(this.oneMovie.id);
     $http({
       url: 'http://localhost:3000/movies/' + this.oneMovie.id + '/reviews',
       method: 'POST',
