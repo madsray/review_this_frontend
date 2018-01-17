@@ -12,6 +12,15 @@
   /* border: 1px solid gold; */
 }
 
+.bold {
+  font-weight: bold;
+
+}
+td {
+  padding-right: 10px !important;
+  padding-bottom: 10px !important;
+  align-items: baseline !important;
+}
 body {
   /* color: red; */
 }
