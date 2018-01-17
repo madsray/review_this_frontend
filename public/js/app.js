@@ -93,8 +93,8 @@ app.controller('MainController', ['$http', function($http){
   };
 
 this.deleteReview = (id) => {
-  // this.currentReview = this.oneReview.id;
-  console.log(this.oneMovie.reviews[0]);
+
+  console.log(id.id)
   $http({
     url: 'http://localhost:3000/reviews/' + id.id,
     method: 'DELETE'
@@ -105,10 +105,10 @@ this.deleteReview = (id) => {
 
 this.editReview = (id) => {
   console.log("Clicckkkk");
-  console.log(this.clickedId);
-
+  // console.log(this.clickedId);
+  console.log(this.toEdit);
   $http({
-    url: 'http://localhost:3000/reviews/' + id.id,
+    url: 'http://localhost:3000/reviews/' + this.toEdit,
     method: 'PUT',
     data: {
       title: this.updateform.title,
