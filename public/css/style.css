@@ -1,16 +1,21 @@
-/* nav{
-  width: 90%;
-  height: 50px;
-  background-color: #8d2c27;
+.modal-dialog{
+  margin-top: 200px;
+  border-radius: 20px;
+}
+.mo{
+  margin-top: 200px;
+  border-radius: 20px;
+}
+.modal-body{
   margin: 0 auto;
-  /* position: fixed;
-  top: 0;
-
-} */
-
-/* *{
-  border: 1px solid gold;
-} */
+}
+.create > input{
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+.modal-header, .modal-footer{
+  background-color: #8d2c27;
+}
 
 .bold {
   font-weight: bold;
@@ -31,20 +36,17 @@ body {
 }
 
 main{
-  /* height: 500px; */
-  /* width: 90%; */
   background-color: grey;
   margin: 0 auto;
   box-sizing: border-box;
   padding: 10px;
-  padding-top: 60px;
+  padding-top: 10px;
   padding-bottom: 40px;
-  margin-top: 70px;
+  margin-top: 50px;
 }
 
 #left{
   width: 50%;
-  /* border: 1px solid black; */
   height: 450px;
 }
 
@@ -52,8 +54,7 @@ main{
   margin: 0 auto;rgba(84,19,17,1)
 }
 
-.form1{
-  /* width: 90%; */
+.form1, .wrap{
   margin: 0 auto;
 }
 
@@ -67,11 +68,7 @@ main{
   display: flex;
   justify-content: space-between;
   margin-top: 60px;
-}
-
-.wrap{
-  /* width: 90%; */
-  margin: 0 auto;
+  margin-bottom: 80px;
 }
 
 nav{
@@ -85,7 +82,7 @@ nav{
 
 .carousel {
     margin-bottom: 0;
-	padding: 0 40px 30px 40px;
+	padding: 0 40px 10px 40px;
 }
 
 /* Reposition the controls slightly */
@@ -192,6 +189,14 @@ margin: 0 auto;
 .thumb {
   height: 200px;
   border-radius: 5px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  margin-right: 5px;
+}
+
+.carousel-item > img{
+  height: 450px;
+  width: 100%;
 }
 
 .one-image {
@@ -202,6 +207,7 @@ margin: 0 auto;
 h2 {
   font-weight: bold;
 }
+
 h4 {
   font-size: 20px;
 }

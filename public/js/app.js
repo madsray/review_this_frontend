@@ -10,13 +10,16 @@ app.controller('MainController', ['$http', function($http){
   this.movieID = 0;
   this.displayEdit = false;
   this.updateform = {};
+  this.railsServer = 'https://awesome-dinner-movie-rails-api.herokuapp.com/';
 
+  // For local testing purposes
+  // this.railsServer = 'http://localhost:3000/';
 
   // Show Movies Function
   this.getAllMovies = () => {
     $http({
       method: 'GET',
-      url: 'http://localhost:3000/movies'
+      url: this.railsServer + 'movies',
     }).then(response=> {
       // console.log('response: ', response);
       this.movies = response.data;
@@ -32,7 +35,7 @@ app.controller('MainController', ['$http', function($http){
     this.movieId = movie.id
     $http({
       method: 'GET',
-      url: 'http://localhost:3000/movies/' + this.movieId
+      url: this.railsServer + 'movies/' + this.movieId
     }).then(response => {
       this.oneMovie = response.data;
       // console.log(this.oneMovie);
@@ -46,7 +49,7 @@ app.controller('MainController', ['$http', function($http){
     console.log('Form Data: ', this.newMovie);
     $http({
       method:'POST',
-      url: 'http://localhost:3000/movies',
+      url: this.railsServer + 'movies',
       data: {
         title: this.newMovie.title,
         plot: this.newMovie.plot,
@@ -70,7 +73,7 @@ app.controller('MainController', ['$http', function($http){
 
     console.log(this.oneMovie.id);
     $http({
-      url: 'http://localhost:3000/movies/' + this.oneMovie.id + '/reviews',
+      url: this.railsServer + 'movies/' + this.oneMovie.id + '/reviews',
       method: 'POST',
       data: {
         title: this.formdata.title,
@@ -96,7 +99,7 @@ this.deleteReview = (id) => {
 
   console.log(id.id)
   $http({
-    url: 'http://localhost:3000/reviews/' + id.id,
+    url: this.railsServer + '/reviews/' + id.id,
     method: 'DELETE'
   }).then(response => {
     this.showOne(this.oneMovie);
@@ -108,7 +111,7 @@ this.editReview = (id) => {
   // console.log(this.clickedId);
   console.log(this.toEdit);
   $http({
-    url: 'http://localhost:3000/reviews/' + this.toEdit,
+    url: this.railsServer + '/reviews/' + this.toEdit,
     method: 'PUT',
     data: {
       title: this.updateform.title,

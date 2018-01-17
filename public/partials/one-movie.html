@@ -5,47 +5,21 @@
       <h4>{{ ctrl.oneMovie.year}}</h4>
       <h4>{{ ctrl.oneMovie.genre}}</h3>
       <p>{{ ctrl.oneMovie.plot}}</p>
-
-
       <h3> Meal Pairings </h3>
 <table>
     <tr ng-repeat="oneReview in ctrl.oneMovie.reviews">
-
-        <td ng-click="ctrl.deleteReview(oneReview)"><span class="glyphicon glyphicon-trash" ></span></td>
-        <td ng-click="ctrl.displayEdit = true; ctrl.toEdit = oneReview.id"><span class="glyphicon glyphicon-pencil"></span></td>
-        <td>{{oneReview.title}}</td>
+        <td ng-click="ctrl.deleteReview(oneReview)"><span class="fa fa-trash-o" ></span></td>
+        <td ng-click="ctrl.displayEdit = true; ctrl.toEdit = oneReview.id"><span class="fa fa-pencil"></span></td>
+        <td> <span class="bold"> Title: </span> {{oneReview.title}}</td>
+        <td class="bold"> Rating:  {{oneReview.rating}} <i class="fa fa-star checked"></i></td>
         <td align="justify">{{oneReview.content}}</td>
-        <td class="bold">{{oneReview.rating}}</td>
-        <!-- <form ng-if="ctrl.displayEdit === true" ng-submit="ctrl.editReview(oneReview.id)">
-          <input type='text' placeholder="Title of Pairing" ng-model="ctrl.updateform.title" />
-          <input type='text' placeholder="description of pairing" ng-model="ctrl.updateform.content" />
-          <input type='text' placeholder="rating" ng-model="ctrl.updateform.rating" />
-          <input type="hidden" ng-model='ctrl.oneMovie.id'>
-          <input type="submit" value="Edit This Review" />
-        </form> -->
+
           <div ng-if="ctrl.displayEdit === true" ng-include="'partials/edit-review.html'"></div>
     </tr>
 </table>
-<!-- <form ng-submit="ctrl.editReview(oneReview.id)">
-  <input type='text' placeholder="Title of Pairing" ng-model="ctrl.updateform.title" />
-  <input type='text' placeholder="description of pairing" ng-model="ctrl.updateform.content" />
-  <input type='text' placeholder="rating" ng-model="ctrl.updateform.rating" />
-  <input type="hidden" ng-model='ctrl.oneMovie.id'>
-  <input type="submit" value="Edit This Review" />
-</form> -->
-  <!-- <div ng-if="ctrl.displayEdit === true" ng-include="'partials/edit-review.html'"></div> -->
-      <!-- <span class="fa fa-star checked"></span>
-      <span class="fa fa-star checked"></span>
-      <span class="fa fa-star checked"></span>
-      <span class="fa fa-star"></span>
-      <span class="fa fa-star"></span> -->
-
     <div ng-include="'partials/add-review.html'"> </div>
-
     </section>
-
     <div>
       <img class="right one-image" ng-src="{{ ctrl.oneMovie.img_url }}">
     </div>
-
   </div>
