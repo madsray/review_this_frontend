@@ -6,13 +6,19 @@
       <h4>{{ ctrl.oneMovie.genre}}</h3>
       <p>{{ ctrl.oneMovie.plot}}</p>
 
-      <!-- Need to ng-repeat reviews -->
+
       <h3> Meal Pairings </h3>
-      <div ng-repeat="oneReview in ctrl.oneMovie.reviews">
-        <p> {{ oneReview.title }}</p>
-        <p>{{oneReview.content}}</p>
-        <p>{{oneReview.rating}}</p>
-      </div>
+<table>
+    <tr ng-repeat="oneReview in ctrl.oneMovie.reviews">
+      =====================================
+        <td>{{oneReview.id}}</td>
+        <td ng-click="ctrl.deleteReview(oneReview)"><span class="glyphicon glyphicon-trash" ></span></td>
+        <td>{{oneReview.title}}</td>
+        <td align="justify">{{oneReview.content}}</td>
+        <td class="bold">{{oneReview.rating}}</td>
+
+    </tr>
+</table>
       <!-- <span class="fa fa-star checked"></span>
       <span class="fa fa-star checked"></span>
       <span class="fa fa-star checked"></span>
