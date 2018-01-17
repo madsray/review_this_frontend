@@ -15,7 +15,7 @@ app.controller('MainController', ['$http', function($http){
       method: 'GET',
       url: 'http://localhost:3000/movies'
     }).then(response=> {
-      console.log('response: ', response);
+      // console.log('response: ', response);
       this.movies = response.data;
     }).catch(reject => {
       console.log('reject: ', reject);
@@ -33,7 +33,7 @@ app.controller('MainController', ['$http', function($http){
         url: 'http://localhost:3000/movies/' + this.movieId
     }).then(response => {
         this.oneMovie = response.data;
-        console.log(this.oneMovie);
+        // console.log(this.oneMovie);
         this.showPage = true;
     }).catch(err => console.log(err));
   }
@@ -63,27 +63,21 @@ app.controller('MainController', ['$http', function($http){
       data: {
         title: this.formdata.title,
         content: this.formdata.content,
-        rating: this.formdata.rating
+        rating: this.formdata.rating,
+        movie_id: this.oneMovie.id
       }
     }).then(response => {
-      console.log('response: ' + response.data);
+      console.log('response: ', response.data);
       console.log(this.formdata);
       this.newreview = response.data
-      this.reviews.push(this.newreview);
-      console.log(this.reviews)
+      this.oneMovie.reviews.push(this.newreview);
+      console.log(this.oneMovie);
     }).catch(err => {
+      // need to fix this error message
       console.error(err.message);
     });
-    $http({
-      method: 'GET',
-      url: 'http://localhost:3000/movies/' + this.movieId
-    }).then(response => {
-      console.log(this.formdata);
-      console.log('response: ' + response.data);
-      this.movieReviews = response.data;
-      console.log(this.movieReviews);
-      this.formdata= {}
-    }).catch(err => console.log(err));
+
+    this.showOne(this.oneMovie);
   };
 
 }]);
