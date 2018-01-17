@@ -9,6 +9,7 @@ app.controller('MainController', ['$http', function($http){
   this.reviews = [];
   this.movieID = 0;
 
+
   // Show Movies Function
   this.getAllMovies = () => {
     $http({
@@ -89,4 +90,14 @@ app.controller('MainController', ['$http', function($http){
     this.showOne(this.oneMovie);
   };
 
+this.deleteReview = (id) => {
+  // this.currentReview = this.oneReview.id;
+  console.log(this.oneMovie.reviews[0]);
+  $http({
+    url: 'http://localhost:3000/reviews/' + id.id,
+    method: 'DELETE'
+  }).then(response => {
+    this.showOne(this.oneMovie);
+  }).catch(err=> console.error(err.message));
+};
 }]);
