@@ -27,7 +27,6 @@ app.controller('MainController', ['$http', function($http){
 
   this.showOne = (movie) => {
     this.movieId = movie.id
-
     $http({
         method: 'GET',
         url: 'http://localhost:3000/movies/' + this.movieId
@@ -39,16 +38,26 @@ app.controller('MainController', ['$http', function($http){
   }
 
   // Create Movie
-  this.processForm = () => {
-    console.log('Form Data: ', this.formdata);
+  this.addMovie = () => {
+
+    console.log('Form Data: ', this.newMovie);
     $http({
       method:'POST',
       url: 'http://localhost:3000/movies',
-      data: this.formdata
+      data: {
+        title: this.newMovie.title,
+        plot: this.newMovie.plot,
+        genre: this.newMovie.genre,
+        year: this.newMovie.year,
+        img_url: this.newMovie.img_url
+      }
     }).then(response => {
-      console.log('response: ', response);
-      this.movies.unshift(response.data);
+      console.log('response: ', response.data);
+      this.newMovie = response.data;
+      this.movies.push(this.newMovie);
+      // this.movies.unshift(response.data);
       this.getAllMovies();
+      this.newMovie = {};
     }).catch(reject => {
       console.log('reject: ', reject);
     });
