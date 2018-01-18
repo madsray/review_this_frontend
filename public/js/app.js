@@ -10,16 +10,13 @@ app.controller('MainController', ['$http', function($http){
   this.movieID = 0;
   this.displayEdit = false;
   this.updateform = {};
-  this.railsServer = 'https://awesome-dinner-movie-rails-api.herokuapp.com/';
 
-  // For local testing purposes
-  // this.railsServer = 'http://localhost:3000/';
 
   // Show Movies Function
   this.getAllMovies = () => {
     $http({
       method: 'GET',
-      url: this.railsServer + 'movies',
+      url: 'http://localhost:3000/movies'
     }).then(response=> {
       // console.log('response: ', response);
       this.movies = response.data;
@@ -35,7 +32,7 @@ app.controller('MainController', ['$http', function($http){
     this.movieId = movie.id
     $http({
       method: 'GET',
-      url: this.railsServer + 'movies/' + this.movieId
+      url: 'http://localhost:3000/movies/' + this.movieId
     }).then(response => {
       this.oneMovie = response.data;
       // console.log(this.oneMovie);
@@ -49,7 +46,7 @@ app.controller('MainController', ['$http', function($http){
     console.log('Form Data: ', this.newMovie);
     $http({
       method:'POST',
-      url: this.railsServer + 'movies',
+      url: 'http://localhost:3000/movies',
       data: {
         title: this.newMovie.title,
         plot: this.newMovie.plot,
@@ -73,7 +70,7 @@ app.controller('MainController', ['$http', function($http){
 
     console.log(this.oneMovie.id);
     $http({
-      url: this.railsServer + 'movies/' + this.oneMovie.id + '/reviews',
+      url: 'http://localhost:3000/movies/' + this.oneMovie.id + '/reviews',
       method: 'POST',
       data: {
         title: this.formdata.title,
@@ -87,6 +84,7 @@ app.controller('MainController', ['$http', function($http){
       this.newreview = response.data
       this.oneMovie.reviews.push(this.newreview);
       console.log(this.oneMovie);
+      this.formdata = {};
     }).catch(err => {
       // need to fix this error message
       console.error(err.message);
@@ -99,7 +97,7 @@ this.deleteReview = (id) => {
 
   console.log(id.id)
   $http({
-    url: this.railsServer + '/reviews/' + id.id,
+    url: 'http://localhost:3000/reviews/' + id.id,
     method: 'DELETE'
   }).then(response => {
     this.showOne(this.oneMovie);
@@ -111,7 +109,7 @@ this.editReview = (id) => {
   // console.log(this.clickedId);
   console.log(this.toEdit);
   $http({
-    url: this.railsServer + '/reviews/' + this.toEdit,
+    url: 'http://localhost:3000/reviews/' + this.toEdit,
     method: 'PUT',
     data: {
       title: this.updateform.title,

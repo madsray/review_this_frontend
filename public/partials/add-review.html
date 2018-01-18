@@ -1,7 +1,7 @@
 <form>
-  <input type='text' placeholder="Title of Pairing" ng-model="ctrl.formdata.title" />
-  <input type='text' placeholder="description of pairing" ng-model="ctrl.formdata.content" />
-  <input type='text' placeholder="rating" ng-model="ctrl.formdata.rating" />
+  <input type='text' placeholder="Title of Pairing" ng-model="ctrl.formdata.title" /><br>
+  <input type='text' placeholder="description of pairing" ng-model="ctrl.formdata.content" /><br>
+  <input type='text' placeholder="rating" ng-model="ctrl.formdata.rating" /><br>
   <input type="hidden" ng-model='ctrl.oneMovie.id'>
-  <input type="submit" value="Create New Review" ng-click="ctrl.addReview(oneMovie.id)"/>
+  <input class='formbtns'type="submit" value="Create New Review" ng-click="ctrl.addReview(oneMovie.id)"/>
 </form>

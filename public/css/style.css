@@ -1,59 +1,39 @@
-<<<<<<< HEAD
-/* nav{
-  width: 90%;
-  height: 50px;
-  background-color: #8d2c27;
-  margin: 0 auto;
-  /* position: fixed;
-  top: 0;
-
-} */
-
-*{
-  /* border: 1px solid gold; */
-}
-
-.modal{
-  /* border: 10px solid white; */
-
-
-}
-=======
->>>>>>> 193a321a5b88aff7a847b514bb145c238d9791d1
 .modal-dialog{
   margin-top: 200px;
   border-radius: 20px;
 }
+
 .mo{
   margin-top: 200px;
   border-radius: 20px;
 }
+
 .modal-body{
   margin: 0 auto;
 }
+
 .create > input{
   margin-bottom: 5px;
   border-radius: 5px;
 }
+
 .modal-header, .modal-footer{
   background-color: #8d2c27;
 }
 
 .bold {
   font-weight: bold;
-
 }
+
 td {
   padding-right: 10px !important;
   padding-bottom: 10px !important;
   align-items: baseline !important;
 }
-body {
-  /* color: red; */
-}
 
 main{
-  background-color: grey;
+  /* background-color: black; */
+  background: linear-gradient(to bottom, hsla(0,0%,0%,0) 0%,hsla(0,0%,0%,0.65) 100%);
   margin: 0 auto;
   box-sizing: border-box;
   padding: 10px;
@@ -71,7 +51,7 @@ main{
   margin: 0 auto;rgba(84,19,17,1)
 }
 
-.form1, .wrap{
+.form1{
   margin: 0 auto;
 }
 
@@ -88,8 +68,13 @@ main{
   margin-bottom: 80px;
 }
 
+.wrap{
+  margin: 0 auto;
+}
+
 nav{
   background-color: #8d2c27 !important;
+  border-bottom: 1px solid black;
 }
 
 .imgs{
@@ -148,9 +133,6 @@ background: #333333;
   border-radius: 5px;
 }
 
-.row-fluid{
-}
-
 .btn-outline-success{
   color: #e1876e;
   border: 1px solid #e1876e;
@@ -165,8 +147,6 @@ background: #333333;
 .caro{
   max-height: 400px;
   display: flex;
-  /* justify-content: center; */
-  /* overflow-x: auto; */
   flex-wrap: nowrap;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
@@ -207,6 +187,12 @@ background: #333333;
 
 .all-thumbs {
   display: inline;
+  margin-top: 20px;
+}
+
+.empty{
+  height: 40px;
+  border: 1px solid gold;
 }
 
 .thumb {
@@ -222,8 +208,10 @@ background: #333333;
 .links{
   margin-left: 55%;
 }
+
 .all{
   padding-left: 15px;
+  box-sizing: border-box;
 }
 
 .carousel-item > img{
@@ -242,4 +230,23 @@ h2 {
 
 h4 {
   font-size: 20px;
+}
+
+footer{
+  height: 200px;
+  width: 100%;
+  background-color: #8d2c27;
+  border-top: 1px solid black;
+  padding-left: 30px;
+  padding-top: 30px;
+  color: black;
+}
+
+form > input {
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.formbtns{
+  background-color: #8d2c27;
 }
