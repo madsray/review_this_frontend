@@ -8,9 +8,9 @@
 
 } */
 
-/* *{
-  border: 1px solid gold;
-} */
+*{
+  /* border: 1px solid gold; */
+}
 
 .modal{
   /* border: 10px solid white; */
@@ -46,12 +46,7 @@ td {
   align-items: baseline !important;
 }
 body {
-  background-color: #808080 !important;
-}
-#myCarousel{
-  width: 450px !important;
-  height: 300px !important;
-  margin: 0 auto !important;
+  /* color: red; */
 }
 
 main{
@@ -174,7 +169,13 @@ background: #333333;
 }
 
 .caro{
-margin: 0 auto;
+  max-height: 400px;
+  display: flex;
+  /* justify-content: center; */
+  /* overflow-x: auto; */
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .elegantshd{
@@ -216,15 +217,25 @@ margin: 0 auto;
 
 .thumb {
   height: 200px;
+  width: 125px;
   border-radius: 5px;
   margin: 0 auto;
   margin-bottom: 15px;
   margin-right: 5px;
+  margin-left: 5px;
+}
+
+.links{
+  margin-left: 55%;
+}
+.all{
+  padding-left: 15px;
 }
 .carousel-item > img{
-  height: 450px;
+  height: 440px;
   width: 100%;
 }
+
 .one-image {
   width: 350px;
   height: auto;
