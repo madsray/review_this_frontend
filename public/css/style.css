@@ -1,3 +1,25 @@
+<<<<<<< HEAD
+/* nav{
+  width: 90%;
+  height: 50px;
+  background-color: #8d2c27;
+  margin: 0 auto;
+  /* position: fixed;
+  top: 0;
+
+} */
+
+*{
+  /* border: 1px solid gold; */
+}
+
+.modal{
+  /* border: 10px solid white; */
+
+
+}
+=======
+>>>>>>> 193a321a5b88aff7a847b514bb145c238d9791d1
 .modal-dialog{
   margin-top: 200px;
   border-radius: 20px;
@@ -27,12 +49,7 @@ td {
   align-items: baseline !important;
 }
 body {
-  background-color: #808080 !important;
-}
-#myCarousel{
-  width: 450px !important;
-  height: 300px !important;
-  margin: 0 auto !important;
+  /* color: red; */
 }
 
 main{
@@ -146,7 +163,13 @@ background: #333333;
 }
 
 .caro{
-margin: 0 auto;
+  max-height: 400px;
+  display: flex;
+  /* justify-content: center; */
+  /* overflow-x: auto; */
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .elegantshd{
@@ -188,14 +211,23 @@ margin: 0 auto;
 
 .thumb {
   height: 200px;
+  width: 125px;
   border-radius: 5px;
   margin: 0 auto;
   margin-bottom: 15px;
   margin-right: 5px;
+  margin-left: 5px;
+}
+
+.links{
+  margin-left: 55%;
+}
+.all{
+  padding-left: 15px;
 }
 
 .carousel-item > img{
-  height: 450px;
+  height: 440px;
   width: 100%;
 }
 
