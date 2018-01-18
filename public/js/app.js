@@ -10,43 +10,43 @@ app.controller('MainController', ['$http', function($http){
   this.movieID = 0;
   this.displayEdit = false;
   this.updateform = {};
+  this.railsServer = 'https://awesome-dinner-movie-rails-api.herokuapp.com/';
 
+  // For local testing purposes
+  // this.railsServer = 'http://localhost:3000/';
 
   // Show Movies Function
   this.getAllMovies = () => {
     $http({
       method: 'GET',
-      url: 'http://localhost:3000/movies'
+      url: this.railsServer + 'movies',
     }).then(response=> {
-      // console.log('response: ', response);
       this.movies = response.data;
     }).catch(reject => {
       console.log('reject: ', reject);
     });
   };
 
-  // Initiall show all movies call
+  // Initial show all movies call
   this.getAllMovies();
 
+  // Show One Movie
   this.showOne = (movie) => {
     this.movieId = movie.id
     $http({
       method: 'GET',
-      url: 'http://localhost:3000/movies/' + this.movieId
+      url: this.railsServer + 'movies/' + this.movieId
     }).then(response => {
       this.oneMovie = response.data;
-      // console.log(this.oneMovie);
       this.showPage = true;
     }).catch(err => console.log(err));
   }
 
-  // Create Movie
+  // Create One Movie
   this.addMovie = () => {
-
-    console.log('Form Data: ', this.newMovie);
     $http({
       method:'POST',
-      url: 'http://localhost:3000/movies',
+      url: this.railsServer + 'movies',
       data: {
         title: this.newMovie.title,
         plot: this.newMovie.plot,
@@ -55,22 +55,19 @@ app.controller('MainController', ['$http', function($http){
         img_url: this.newMovie.img_url
       }
     }).then(response => {
-      console.log('response: ', response.data);
       this.newMovie = response.data;
       this.movies.push(this.newMovie);
-      // this.movies.unshift(response.data);
       this.getAllMovies();
       this.newMovie = {};
     }).catch(reject => {
       console.log('reject: ', reject);
     });
   };
-  // Create Reviews
-  this.addReview = () => {
 
-    console.log(this.oneMovie.id);
+  // Create One Review
+  this.addReview = () => {
     $http({
-      url: 'http://localhost:3000/movies/' + this.oneMovie.id + '/reviews',
+      url: this.railsServer + 'movies/' + this.oneMovie.id + '/reviews',
       method: 'POST',
       data: {
         title: this.formdata.title,
@@ -79,54 +76,40 @@ app.controller('MainController', ['$http', function($http){
         movie_id: this.oneMovie.id
       }
     }).then(response => {
-      console.log('response: ', response.data);
-      console.log(this.formdata);
       this.newreview = response.data
       this.oneMovie.reviews.push(this.newreview);
-      console.log(this.oneMovie);
       this.formdata = {};
     }).catch(err => {
-      // need to fix this error message
       console.error(err.message);
     });
-
     this.showOne(this.oneMovie);
   };
 
-this.deleteReview = (id) => {
+  // Delete One Review
+  this.deleteReview = (id) => {
+    $http({
+      url: this.railsServer + '/reviews/' + id.id,
+      method: 'DELETE'
+    }).then(response => {
+      this.showOne(this.oneMovie);
+    }).catch(err=> console.error(err.message));
+  };
 
-  console.log(id.id)
-  $http({
-    url: 'http://localhost:3000/reviews/' + id.id,
-    method: 'DELETE'
-  }).then(response => {
-    this.showOne(this.oneMovie);
-  }).catch(err=> console.error(err.message));
-};
-
-this.editReview = (id) => {
-  console.log("Clicckkkk");
-  // console.log(this.clickedId);
-  console.log(this.toEdit);
-  $http({
-    url: 'http://localhost:3000/reviews/' + this.toEdit,
-    method: 'PUT',
-    data: {
-      title: this.updateform.title,
-      content: this.updateform.content,
-      rating: this.updateform.rating,
-      movie_id: this.updateform.id
-    }
-  }).then (response => {
-
-    console.log(response.data.id);
-    this.showOne(this.oneMovie);
-
-  },error=>console.error(error)).catch(err=> console.log(err.message));
+  // Edit One Review
+  this.editReview = (id) => {
+    $http({
+      url: this.railsServer + '/reviews/' + this.toEdit,
+      method: 'PUT',
+      data: {
+        title: this.updateform.title,
+        content: this.updateform.content,
+        rating: this.updateform.rating,
+        movie_id: this.updateform.id
+      }
+    }).then (response => {
+      this.showOne(this.oneMovie);
+    },error=>console.error(error)).catch(err=> console.log(err.message));
     this.displayEdit= false;
-};
-
-
-
+  };
 
 }]);
