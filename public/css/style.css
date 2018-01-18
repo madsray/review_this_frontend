@@ -250,3 +250,11 @@ form > input {
 .formbtns{
   background-color: #8d2c27;
 }
+
+footer a {
+  color: black;
+}
+
+footer a:hover{
+  color: #410F0C;
+}
